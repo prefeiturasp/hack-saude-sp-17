@@ -23,8 +23,8 @@ app = Flask(__name__)
 
 # constant map of api.ai actions to functions
 action_map = {
-    "medicamento_local": getNearestMedPosition,
-    "medicamento_prescritor_sus": canGetMed,
+    # "medicamento_local": getNearestMedPosition,
+    "medicamento_prescritor_sus": canGetMed
 }
 
 
@@ -58,10 +58,8 @@ def handleRequest(req):
     return func(req)
 
 # Medication Requests
-
-
-def getNearestMedPosition(req):
-    pass
+# def getNearestMedPosition(req):
+#     pass
 
 
 def canGetMed(req):
