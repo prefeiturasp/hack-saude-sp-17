@@ -1,7 +1,7 @@
 {
-  "name": "API.AI webhook demonstration",
-  "description": "API.AI webhook demonstration",
-  "repository": "https://github.com/api-ai/apiai-weather-webhook-sample",
-  "logo": "http://xvir.github.io/img/apiai.png",
+  "name": "Vivi - Hackathon em Saúde SP 2017",
+  "description": "Chatbot para o SUS desenvolvido na Hackathon em Saúde de São Paulo - 2017.",
+  "repository": "https://github.com/viniciusguerra/hack-saude-sp-17",
+  "logo": "https://scontent.fcgh14-1.fna.fbcdn.net/v/t1.0-9/17799200_1696355200657406_1413460068201225924_n.png?oh=ae5df9d96994bfed1b993a5ac0ef1d8c&oe=5997C153",
   "keywords": ["api.ai", "natural language"]
 }
