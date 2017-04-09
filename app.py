@@ -6,6 +6,8 @@ from flask import Flask
 from flask import request
 from flask import make_response
 
+import facebook
+
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
 from urllib.error import HTTPError
@@ -19,6 +21,8 @@ install_aliases()
 
 # Flask app should start in global layout
 app = Flask(__name__)
+graph = facebook.GraphAPI(access_token='9320bd6897868b16ac5cccc658ba08cc',
+                          version='2.8')
 
 
 @app.route('/webhook', methods=['POST'])
@@ -69,7 +73,7 @@ def canGetMed(req):
 
     can_get = True
     response_text = ""
-    output_context = ""
+    # output_context = ""
 
     try:
         can_get = not [med["isAntibiotic"] for med in data["medications"]
@@ -80,20 +84,20 @@ def canGetMed(req):
     # if the med can be required, continue service
     if can_get:
         response_text = ""
-        output_context = "medicamento-uso-continuo"
+        # output_context = "medicamento-uso-continuo"
     # if the med can't be retrieved, end service
     else:
         response_text = "Desculpe, mas antibióticos apenas podem ser retirados \
             quando receitados por médicos do SUS."
-        output_context = "medicamento-falha"
+        # output_context = "medicamento-falha"
 
     response_object = {
         "speech": response_text,
         "displayText": response_text,
-        "contextOut": [{
-            "name": output_context,
-            "lifespan": 5,
-            "parameters": {}}],
+        # "contextOut": [{
+        #     "name": output_context,
+        #     "lifespan": 5,
+        #     "parameters": {}}],
         "source": "hack-saude-sp-17",
         "data": {}
     }
