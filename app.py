@@ -44,6 +44,12 @@ def handleRequest(req):
     """
     action = req.get("result").get("action")
 
+    # constant map of api.ai actions to functions
+    action_map = {
+        # "medicamento_local": getNearestMedPosition,
+        "medicamento_prescritor_sus": canGetMed
+    }
+
     # gets function from action map dictionary
     func = action_map.get(action)
 
@@ -90,11 +96,6 @@ def canGetMed(req):
 
     return response_object
 
-# constant map of api.ai actions to functions
-action_map = {
-    # "medicamento_local": getNearestMedPosition,
-    "medicamento_prescritor_sus": canGetMed
-}
 
 # def processRequest(req):
 #     if req.get("result").get("action") != "yahooWeatherForecast":
