@@ -88,12 +88,14 @@ def canGetMed(req):
         output_context = "medicamento-falha"
 
     response_object = {
+        "speech": response_text,
         "displayText": response_text,
         "contextOut": [{
             "name": output_context,
-            "lifespan": 2,
+            "lifespan": 5,
             "parameters": {}}],
-        "source": "hack-saude-sp-17"
+        "source": "hack-saude-sp-17",
+        "data": {}
     }
 
     return response_object
