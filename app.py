@@ -66,11 +66,12 @@ def canGetMed(req):
 
     requested_med = req.get("result").get("parameters").get("nome_medicamento")
 
-    can_get = False
+    can_get = True
     response_text, output_context = ("", "")
 
     try:
-        can_get = data.get(requested_med).get("isAntibiotic")
+        can_get = [med.isAntibiotic for med in data["medications"]
+                   if med.name == requested_med]
     except Exception as err:
         pass
 
@@ -85,11 +86,12 @@ def canGetMed(req):
         output_context = "medicamento-falha"
 
     response_object = {
-        "speech": response_text,
-        "displayText": response_text,
-        "contextOut": [output_context],
-        "source": "hack-saude-sp-17"
-        # "data": data,
+        "fullfilment": {
+            "speech": response_text,
+            "displayText": response_text,
+            "contextOut": [output_context],
+            "source": "hack-saude-sp-17"
+        }
     }
 
     return response_object
