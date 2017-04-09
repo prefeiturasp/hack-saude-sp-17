@@ -69,8 +69,11 @@ def canGetMed(req):
     can_get = True
     response_text, output_context = ("", "")
 
-    can_get = not [med.isAntibiotic for med in data["medications"]
-                   if med.name is requested_med]
+    try:
+        can_get = not [med.isAntibiotic for med in data["medications"]
+                       if med.name is requested_med]
+    except Exception as err:
+        pass
 
     # if the med can be required, continue service
     if can_get:
