@@ -70,8 +70,8 @@ def canGetMed(req):
     response_text, output_context = ("", "")
 
     try:
-        can_get = ![med.isAntibiotic for med in data["medications"]
-                    if med.name == requested_med]
+        can_get = [!med.isAntibiotic for med in data["medications"]
+                   if med.name == requested_med]
     except Exception as err:
         pass
 
