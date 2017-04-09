@@ -1,16 +1,11 @@
-# Api.ai - sample webhook implementation in Python
+# Big Data Saúde
 
-This is a really simple webhook implementation that gets Api.ai classification JSON (i.e. a JSON output of Api.ai /query endpoint) and returns a fulfillment response.
+## ChatBot
 
-More info about Api.ai webhooks could be found here:
-[Api.ai Webhook](https://docs.api.ai/docs/webhook)
+A interação com o usuário é feita pela Vivi, um ChatBot para Messenger desenvolvido através de [api.ai](https://api.ai/) e integrado com a page do Facebook.
+Ela segue o Procedimento Operacional Padrão descrito na seção **5.2.4.6 Medicamentos** encontrada [neste link](ftp://ftp.saude.sp.gov.br/ftpsessp/bibliote/informe_eletronico/2016/iels.out.16/Iels196/M_PT-SMS-1875_2016.pdf).
 
-# Deploy to:
-[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+## Back-end
 
-# What does the service do?
-It's a weather information fulfillment service that uses [Yahoo! Weather API](https://developer.yahoo.com/weather/).
-The services takes the `geo-city` parameter from the action, performs geolocation for the city and requests weather information from Yahoo! Weather public API. 
-
-The service packs the result in the Api.ai webhook-compatible response JSON and returns it to Api.ai.
-
+O Back-end, desenvolvido em Python, cuidaria da lógica da Vivi a partir das respostas dadas a ela, mas não pôde ser implementado por limitações técnicas e problemas de documentação da api.ai.
+Foi feito deploy como webhook no Heroku na URL seguinte: https://hack-saude-sp-17.herokuapp.com/webhook
