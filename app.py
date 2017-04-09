@@ -86,7 +86,7 @@ def canGetMed(req):
         output_context = "medicamento-falha"
 
     response_object = {
-        "fullfilment": {
+        "fulfillment": {
             "speech": response_text,
             "displayText": response_text,
             "contextOut": [output_context],
