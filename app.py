@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 
-from __future__ import print_function
-from future.standard_library import install_aliases
-install_aliases()
+from flask import Flask
+from flask import request
+from flask import make_response
 
 from urllib.parse import urlparse, urlencode
 from urllib.request import urlopen, Request
@@ -11,9 +11,9 @@ from urllib.error import HTTPError
 import json
 import os
 
-from flask import Flask
-from flask import request
-from flask import make_response
+from __future__ import print_function
+from future.standard_library import install_aliases
+install_aliases()
 
 # Flask app should start in global layout
 app = Flask(__name__)
@@ -56,7 +56,10 @@ def makeYqlQuery(req):
     if city is None:
         return None
 
-    return "select * from weather.forecast where woeid in (select woeid from geo.places(1) where text='" + city + "')"
+    retval = "select * from weather.forecast where woeid in \
+             (select woeid from geo.places(1) where text='" + city + "')"
+
+    return retval
 
 
 def makeWebhookResult(data):
@@ -84,8 +87,9 @@ def makeWebhookResult(data):
 
     # print(json.dumps(item, indent=4))
 
-    speech = "Today in " + location.get('city') + ": " + condition.get('text') + \
-             ", the temperature is " + condition.get('temp') + " " + units.get('temperature')
+    speech = "Today in " + location.get('city') + ": " + \
+        condition.get('text') + ", the temperature is " + \
+        condition.get('temp') + " " + units.get('temperature')
 
     print("Response:")
     print(speech)
