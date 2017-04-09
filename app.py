@@ -69,11 +69,8 @@ def canGetMed(req):
     can_get = True
     response_text, output_context = ("", "")
 
-    try:
-        can_get = not [med.isAntibiotic for med in data["medications"]
-                       if med.name == requested_med]
-    except Exception as err:
-        pass
+    can_get = not [med.isAntibiotic for med in data["medications"]
+                   if med.name is requested_med]
 
     # if the med can be required, continue service
     if can_get:
@@ -86,12 +83,10 @@ def canGetMed(req):
         output_context = "medicamento-falha"
 
     response_object = {
-        "fulfillment": {
-            "speech": response_text,
-            "displayText": response_text,
-            "contextOut": [output_context],
-            "source": "hack-saude-sp-17"
-        }
+        "speech": response_text,
+        "displayText": response_text,
+        "contextOut": [output_context],
+        "source": "hack-saude-sp-17"
     }
 
     return response_object
