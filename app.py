@@ -74,6 +74,8 @@ def canGetMed(req):
 
     try:
         can_get = data.get(requested_med).get("isAntibiotic")
+    except Exception as err:
+        pass
 
     # if the med can be required, continue service
     if can_get:
