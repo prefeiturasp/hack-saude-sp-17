@@ -61,4 +61,4 @@ target/
 # Created by .ignore support plugin (hsz.mobi)
 
 # VS Code
-vscode/
+.vscode/

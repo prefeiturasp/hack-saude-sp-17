@@ -1,0 +1,24 @@
+{
+    "medications": [
+        {
+            "name": "amoxicilina",
+            "isAntibiotic": true
+        },
+        {
+            "name": "omeprazol",
+            "isAntibiotic": false
+        },
+        {
+            "name": "insulina",
+            "isAntibiotic": false
+        },
+        {
+            "name": "dipirona",
+            "isAntibiotic": false
+        },
+        {
+            "name": "ácido acetilsalicílico",
+            "isAntibiotic": false
+        }
+    ]
+}
