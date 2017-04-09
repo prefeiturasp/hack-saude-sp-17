@@ -21,13 +21,6 @@ install_aliases()
 app = Flask(__name__)
 
 
-# constant map of api.ai actions to functions
-action_map = {
-    # "medicamento_local": getNearestMedPosition,
-    "medicamento_prescritor_sus": canGetMed
-}
-
-
 @app.route('/webhook', methods=['POST'])
 def webhook():
     req = request.get_json(silent=True, force=True)
@@ -97,6 +90,11 @@ def canGetMed(req):
 
     return response_object
 
+# constant map of api.ai actions to functions
+action_map = {
+    # "medicamento_local": getNearestMedPosition,
+    "medicamento_prescritor_sus": canGetMed
+}
 
 # def processRequest(req):
 #     if req.get("result").get("action") != "yahooWeatherForecast":
