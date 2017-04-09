@@ -36,7 +36,7 @@ def webhook():
     r.headers['Content-Type'] = 'application/json'
 
     print("Response:")
-    print(r)
+    print(res)
 
     return r
 
@@ -72,7 +72,7 @@ def canGetMed(req):
 
     try:
         can_get = not [med.isAntibiotic for med in data["medications"]
-                       if med.name is requested_med]
+                       if med.name == requested_med]
     except Exception as err:
         pass
 
