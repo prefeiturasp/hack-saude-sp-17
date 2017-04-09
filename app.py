@@ -32,11 +32,12 @@ def webhook():
     res = handleRequest(req)
 
     res = json.dumps(res, indent=4)
-    print("Response:")
-    print(res)
-
     r = make_response(res)
     r.headers['Content-Type'] = 'application/json'
+
+    print("Response:")
+    print(r)
+
     return r
 
 
@@ -89,7 +90,8 @@ def canGetMed(req):
         "speech": response_text,
         "displayText": response_text,
         "contextOut": [output_context],
-        "source": "hack-saude-sp-17"
+        "source": "hack-saude-sp-17",
+        "data": {}
     }
 
     return response_object
