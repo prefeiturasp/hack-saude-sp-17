@@ -68,7 +68,8 @@ def canGetMed(req):
     requested_med = req.get("result").get("parameters").get("nome_medicamento")
 
     can_get = True
-    response_text, output_context = ("", "")
+    response_text = ""
+    output_context = ""
 
     try:
         can_get = not [med["isAntibiotic"] for med in data["medications"]
@@ -87,11 +88,11 @@ def canGetMed(req):
         output_context = "medicamento-falha"
 
     response_object = {
-        "speech": response_text,
         "displayText": response_text,
         "contextOut": [{
             "name": output_context,
-            "lifespan": 2}],
+            "lifespan": 2,
+            "parameters": {}}],
         "source": "hack-saude-sp-17"
     }
 
