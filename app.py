@@ -94,7 +94,7 @@ def canGetMed(req):
             "name": output_context,
             "lifespan": 5
             # "parameters": {}
-            }]
+            }],
         "source": "hack-saude-sp-17"
         # "data": {}
     }
