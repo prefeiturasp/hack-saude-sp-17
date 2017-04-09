@@ -91,10 +91,8 @@ def canGetMed(req):
         "displayText": response_text,
         "contextOut": [{
             "name": output_context,
-            "lifespan": 2,
-            "parameters": {}}],
-        "source": "hack-saude-sp-17",
-        "data": {}
+            "lifespan": 2}],
+        "source": "hack-saude-sp-17"
     }
 
     return response_object
